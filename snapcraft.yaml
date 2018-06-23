@@ -42,8 +42,7 @@ parts:
     plugin: make
     override-pull: |
       snapcraftctl pull
-      sed -i 's|install -o root|install -D -o root|g' Makefile
-      sed -i 's|\$(PREFIX)/bin/|\$(DESTDIR)\$(PREFIX)/bin/|g' Makefile
+      sed -i 's|install -o root -m 755 \$(PROGRAM) \$(PREFIX)/bin/|install -D -o root -m 755 \$(PROGRAM) \$(DESTDIR)\$(PREFIX)/bin/\$(PROGRAM)|g' Makefile
       sed -i 's|INSTALL_DIR=|INSTALL_DIR=\$(DESTDIR)|g' Makefile
       sed -i 's|/usr/local|/usr|g' Makefile
       sed -i 's|xdg-desktop-menu|\#xdg-desktop-menu|g' Makefile
@@ -54,6 +53,10 @@ parts:
       - zlib1g-dev
       - xdg-utils
       - libjpeg-turbo8-dev
+      - libgl1-mesa-dev
+      - libx11-xcb-dev
+      - libxft-dev
+      - libxi-dev
     after: [ desktop-gtk2 ]
   env:
     plugin: nil

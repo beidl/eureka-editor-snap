@@ -62,10 +62,12 @@ parts:
     plugin: copy
     files:
       eureka-editor: usr/bin/eureka-editor
+    after: [ env ]
   env:
     plugin: nil
     stage-packages:
       - libfltk1.3
+      - libfltk-images1.3
       - zlib1g
       - libjpeg-turbo8
     after: [ eureka ]

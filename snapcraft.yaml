@@ -31,7 +31,7 @@ confinement: strict
 
 apps:
   eureka:
-    command: desktop-launch eureka
+    command: desktop-launch eureka-editor
     plugs: [ wayland, x11, desktop, opengl, home ]
 
 parts:

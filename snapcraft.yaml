@@ -30,12 +30,12 @@ description: |
 confinement: strict
 
 apps:
-  eureka-doom-editor:
-    command: desktop-launch eureka -install $SNAP/usr/share/eureka
+  eureka:
+    command: desktop-launch eureka
     plugs: [ wayland, x11, desktop, opengl, home ]
 
 parts:
-  eureka-doom-editor:
+  eureka:
     source: https://sourceforge.net/projects/eureka-editor/files/Eureka/1.21/eureka-121-source.tar.gz/download
     source-type: tar
     source-checksum: sha1/bb00bcda68a6974b158f06b82abba337b5b919f0
@@ -57,6 +57,8 @@ parts:
       - libx11-xcb-dev
       - libxft-dev
       - libxi-dev
+    files:
+      eureka-editor: usr/bin/eureka-editor
     after: [ desktop-gtk2 ]
   env:
     plugin: nil
@@ -64,4 +66,4 @@ parts:
       - libfltk1.3
       - zlib1g
       - libjpeg-turbo8
-    after: [ eureka-doom-editor ]
+    after: [ eureka ]

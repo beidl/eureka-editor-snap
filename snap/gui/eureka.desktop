@@ -2,7 +2,7 @@
 Name=Eureka DOOM Editor
 GenericName=DOOM Editor
 Comment=Edit maps for the game DOOM
-Exec=eureka
+Exec=eureka-editor
 Icon=${SNAP}/snap/gui/eureka.png
 Terminal=false
 Type=Application

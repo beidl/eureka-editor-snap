@@ -57,9 +57,11 @@ parts:
       - libx11-xcb-dev
       - libxft-dev
       - libxi-dev
+    after: [ desktop-gtk2 ]
+  wrapper:
+    plugin: copy
     files:
       eureka-editor: usr/bin/eureka-editor
-    after: [ desktop-gtk2 ]
   env:
     plugin: nil
     stage-packages:

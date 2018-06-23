@@ -31,7 +31,7 @@ confinement: strict
 
 apps:
   eureka-doom-editor:
-    command: desktop-launch eureka
+    command: desktop-launch eureka -install $SNAP/usr/share/eureka
     plugs: [ wayland, x11, desktop, opengl, home ]
 
 parts:

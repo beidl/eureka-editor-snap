@@ -32,7 +32,7 @@ confinement: strict
 apps:
   eureka:
     command: desktop-launch eureka-editor
-    plugs: [ wayland, x11, desktop, opengl, home ]
+    plugs: [ x11, desktop, opengl, home, removable-media ]
 
 parts:
   eureka:

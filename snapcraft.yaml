@@ -34,6 +34,13 @@ apps:
     command: desktop-launch eureka-editor
     plugs: [ x11, desktop, opengl, home, removable-media ]
 
+plugs:
+  doom-engine:
+    content: doom-engine
+    interface: content
+    target: $SNAP/doom-engine
+    default-provider: prboom-plus-beidl:doom-engine
+
 parts:
   eureka:
     source: https://sourceforge.net/projects/eureka-editor/files/Eureka/1.21/eureka-121-source.tar.gz/download

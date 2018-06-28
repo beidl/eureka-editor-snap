@@ -40,7 +40,7 @@ confinement: strict
 apps:
   eureka:
     command: desktop-launch eureka-editor
-    plugs: [ x11, desktop, opengl, home, removable-media ]
+    plugs: [ x11, desktop, opengl, pulseaudio, home, removable-media ]
 
 plugs:
   doom-engine:

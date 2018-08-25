@@ -64,7 +64,7 @@ parts:
       sed -i 's|xdg-desktop-menu|\#xdg-desktop-menu|g' Makefile
       sed -i 's|xdg-icon-resource|\#xdg-icon-resource|g' Makefile
     override-build: |
-      mkdir -p $(DESTDIR)$(PREFIX)/bin
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
       snapcraftctl build
     build-packages:
       - make

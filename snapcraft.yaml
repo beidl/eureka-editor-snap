@@ -1,5 +1,6 @@
 name: eureka-doom-editor
-version: 1.21
+version: 1.24
+grade: stable
 summary: Eureka is a map editor for the classic DOOM games.
 description: |
   Eureka is a map editor for the classic DOOM games, and a few related games such as Heretic and Hexen. The supported operating systems are: Linux (and other Unices), Windows and OS X.
@@ -36,9 +37,9 @@ apps:
 
 parts:
   eureka:
-    source: https://sourceforge.net/projects/eureka-editor/files/Eureka/1.21/eureka-121-source.tar.gz/download
+    source: https://sourceforge.net/projects/eureka-editor/files/Eureka/1.24/eureka-124-source.tar.gz/download
     source-type: tar
-    source-checksum: sha1/bb00bcda68a6974b158f06b82abba337b5b919f0
+    source-checksum: sha1/c5c6374fec532d0903b45bc5ce5b806740d6cbc2
     plugin: make
     override-pull: |
       snapcraftctl pull
@@ -59,8 +60,8 @@ parts:
       - libxi-dev
     after: [ desktop-gtk2 ]
   wrapper:
-    plugin: copy
-    files:
+    plugin: dump
+    organize:
       eureka-editor: usr/bin/eureka-editor
     after: [ env ]
   env:

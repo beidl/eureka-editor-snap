@@ -63,6 +63,9 @@ parts:
       sed -i 's|/usr/local|/usr|g' Makefile
       sed -i 's|xdg-desktop-menu|\#xdg-desktop-menu|g' Makefile
       sed -i 's|xdg-icon-resource|\#xdg-icon-resource|g' Makefile
+    override-build: |
+      mkdir -p $(DESTDIR)$(PREFIX)/bin
+      snapcraftctl build
     build-packages:
       - make
       - libfltk1.3-dev

@@ -27,13 +27,28 @@ description: |
    - Heretic
    - Hexen
    - Strife
+  
+  To enable "Test in Game" functionality in the editor set either of the following absolute paths as "Exe path", depending on your distribution:
+    /snap/eureka-doom-editor/current/doom-engine/bin/prboom-plus-iwad-launch
+    /var/lib/snapd/snap/eureka-doom-editor/current/doom-engine/bin/prboom-plus-iwad-launch
+   
+  If no DOOM engine is present install the prboom-plus-beidl snap and connect the interface, ie:
+   snap install prboom-plus-beidl
+   snap connect eureka-doom-editor:doom-engine prboom-plus-beidl:doom-engine
 
 confinement: strict
 
 apps:
   eureka:
     command: desktop-launch eureka-editor
-    plugs: [ wayland, x11, desktop, opengl, home ]
+    plugs: [ x11, desktop, opengl, pulseaudio, home, removable-media ]
+
+plugs:
+  doom-engine:
+    content: doom-engine
+    interface: content
+    target: $SNAP/doom-engine
+    default-provider: prboom-plus-beidl:doom-engine
 
 parts:
   eureka:

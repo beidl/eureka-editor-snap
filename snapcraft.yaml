@@ -58,8 +58,6 @@ parts:
     plugin: make
     override-pull: |
       snapcraftctl pull
-      sed -i 's|install -o root -m 755 \$(PROGRAM) \$(PREFIX)/bin/|install -D -o root -m 755 \$(PROGRAM) \$(DESTDIR)\$(PREFIX)/bin/\$(PROGRAM)|g' Makefile
-      sed -i 's|INSTALL_DIR=|INSTALL_DIR=\$(DESTDIR)|g' Makefile
       sed -i 's|/usr/local|/usr|g' Makefile
       sed -i 's|xdg-desktop-menu|\#xdg-desktop-menu|g' Makefile
       sed -i 's|xdg-icon-resource|\#xdg-icon-resource|g' Makefile
